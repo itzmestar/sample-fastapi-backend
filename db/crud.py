@@ -16,3 +16,11 @@ def create_document(db: Session, document: schemas.DocumentCreate):
     db.commit()
     db.refresh(db_document)
     return db_document
+
+
+def update_document(db: Session, document: schemas.DocumentCreate):
+    db_document = db.query(models.Document).filter(models.Document.type == document.type).first()
+    db_document.position = document.position
+    db.commit()
+    db.refresh(db_document)
+    return db_document
