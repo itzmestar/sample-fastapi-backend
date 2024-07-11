@@ -12,7 +12,6 @@ class DocumentCreate(DocumentBase):
 
 
 class DocumentRead(DocumentBase):
-    id: int
 
     class Config:
         orm_mode = True
